@@ -194,8 +194,8 @@ def plot_accuracy_loss(
     # 绘制准确率曲线
     plt.figure(figsize=(10, 5))
     plt.subplot(1, 2, 1)
-    plt.plot(epochs, train_accuracies, "bo-", label="Training Accuracy")
-    plt.plot(epochs, dev_accuracies, "r*-", label="Validation Accuracy")
+    plt.plot(epochs, train_accuracies, "b-", label="Training Accuracy")
+    plt.plot(epochs, dev_accuracies, "r-", label="Validation Accuracy")
     plt.title("Training and Validation Accuracy")
     plt.xlabel("Epochs")
     plt.ylabel("Accuracy")
