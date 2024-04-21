@@ -6,7 +6,6 @@ from train_eval import train, init_network
 from importlib import import_module
 import argparse
 import matplotlib.pyplot as plt
-import matplotlib.font_manager as fm
 
 
 parser = argparse.ArgumentParser(description='Chinese Text Classification')
@@ -18,7 +17,6 @@ args = parser.parse_args()
 
 if __name__ == '__main__':
 
-    myfont = fm.FontProperties(fname="THUCNews/font/DroidSansFallback.ttf") 
     dataset = 'THUCNews'  # 数据集
 
     # 搜狗新闻:embedding_SougouNews.npz, 腾讯:embedding_Tencent.npz, 随机初始化:random

@@ -8,10 +8,11 @@ import time
 from datetime import timedelta
 import matplotlib.pyplot as plt
 import seaborn as sns
+import matplotlib.font_manager as fm
 
 MAX_VOCAB_SIZE = 10000  # 词表长度限制
 UNK, PAD = "<UNK>", "<PAD>"  # 未知字，padding符号
-
+myfont = fm.FontProperties(fname="THUCNews/font/DroidSansFallback.ttf") 
 
 def build_vocab(file_path, tokenizer, max_size, min_freq):
     vocab_dic = {}
@@ -178,7 +179,7 @@ def plot_test_report(config, test_report):
     plt.xlabel("Categories")
     plt.ylabel("Scores")
     plt.title("Precision and Recall for Each Category")
-    plt.xticks(index + bar_width / 2, categories, fontproperties=myfont)
+    plt.xticks(index + bar_width / 2, categories,fontproperties=myfont)
     plt.legend()
     plt.tight_layout()
     plt.savefig(save_path)
