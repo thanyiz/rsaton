@@ -103,11 +103,11 @@ def train(config, model, train_iter, dev_iter, test_iter):
                 writer.add_scalar("acc/dev", dev_acc, total_batch)
                 model.train()
             total_batch += 1
-            if total_batch - last_improve > config.require_improvement:
-                # 验证集loss超过1000batch没下降，结束训练
-                print("No optimization for a long time, auto-stopping...")
-                flag = True
-                break
+            # if total_batch - last_improve > config.require_improvement:
+            #     # 验证集loss超过1000batch没下降，结束训练
+            #     print("No optimization for a long time, auto-stopping...")
+            #     flag = True
+            #     break
         train_losses.append(sum(epoch_train_losses) / len(epoch_train_losses))
         train_accuracies.append(
             sum(epoch_train_accuracies) / len(epoch_train_accuracies)
