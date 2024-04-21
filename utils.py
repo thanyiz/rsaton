@@ -148,6 +148,8 @@ def plot_confusion_matrix(config, confusion_matrix):
         xticklabels=config.class_list,
         yticklabels=config.class_list,
     )
+    plt.xticks(fontproperties=myfont)  # 设置x轴标签字体
+    plt.yticks(fontproperties=myfont)  # 设置y轴标签字体
     plt.xlabel("Predicted Label")
     plt.ylabel("True Label")
     plt.title("Confusion Matrix")
@@ -176,7 +178,7 @@ def plot_test_report(config, test_report):
     plt.xlabel("Categories")
     plt.ylabel("Scores")
     plt.title("Precision and Recall for Each Category")
-    plt.xticks(index + bar_width / 2, categories)
+    plt.xticks(index + bar_width / 2, categories, fontproperties=myfont)
     plt.legend()
     plt.tight_layout()
     plt.savefig(save_path)
