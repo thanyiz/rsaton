@@ -48,13 +48,13 @@ class Model(nn.Module):
             self.embedding = nn.Embedding(config.n_vocab, config.embed, padding_idx=config.n_vocab - 1)
         self.lstm = nn.LSTM(config.embed, config.hidden_size, config.num_layers,
                             bidirectional=True, batch_first=True, dropout=config.dropout)
-        self.fc = nn.Linear(config.hidden_size * 2, config.num_classes)
+        self.fc = nn.Linear(config.hidden_size * 2, config.num_classes)   # 因为是双向LSTM, hidden_size*2
 
     def forward(self, x):
         x, _ = x
         out = self.embedding(x)  # [batch_size, seq_len, embeding]=[128, 32, 300]
         out, _ = self.lstm(out)
-        out = self.fc(out[:, -1, :])  # 句子最后时刻的 hidden state
+        out = self.fc(out[:, -1, :])  # -1 是取最后时刻的 hidden state, 有的做法是是将所有个时刻的 hidden state 取均值
         return out
 
     '''变长RNN，效果差不多，甚至还低了点...'''
